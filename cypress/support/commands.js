@@ -11,6 +11,25 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+
+Cypress.Commands.add("addProductToCart", (productName) => {
+    cy.get('.inventory_item_description').each(($el, index, $list) => {
+        if ($el.text().includes(productName))
+        {
+            cy.get('#add-to-cart-sauce-labs-backpack').eq(index).click()
+        }  
+        
+        })
+    
+    })
+
+
+
+
+
+
+
+
 //
 //
 // -- This is a child command --

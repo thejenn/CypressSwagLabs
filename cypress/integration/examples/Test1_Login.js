@@ -17,6 +17,7 @@ describe('Login Suite', function() {
         cy.get("#password").type('secret_sauce')
         cy.get('#login-button').click()
         cy.get('.error-button').should('be.visible')
+        cy.get('.error-message-container').should('have.text', 'Epic sadface: Username and password do not match any user in this service')
 
     })
 
@@ -27,6 +28,7 @@ describe('Login Suite', function() {
         cy.get("#password").type('bad password')
         cy.get('#login-button').click()
         cy.get('.error-button').should('be.visible')
+        cy.get('.error-message-container').should('have.text', 'Epic sadface: Username and password do not match any user in this service')
 
     })
 
